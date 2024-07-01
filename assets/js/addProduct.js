@@ -16,27 +16,27 @@ addProductForm.addEventListener('submit', async (e) => {
   const category = form.elements['category'].value;
   const price = form.elements['price'].value;
   const image_url = form.elements['image_url'].value;
-  const payload = { name, description, category, price, image_url };
+  const product = { name, description, category, price, image_url };
 
-  addProduct(payload);
+  addProduct(product);
 });
 
 
 
-async function addProduct(payload) {
+async function addProduct(product) {
   try {
     const { error } = await supabaseClient
       .from('products')
-      .insert(payload);
+      .insert(product);
     
     if (error) throw new Error(error.message);
     
-    if (payload.category === 'Pakaian Pria') window.location.href = 'men.html';
-    else if (payload.category === 'Pakaian Wanita') window.location.href = 'women.html';
-    else if (payload.category === 'Pakaian Anak') window.location.href = 'children.html';
-    else if (payload.category === 'Tas') window.location.href = 'bag.html';
-    else if (payload.category === 'Sepatu') window.location.href = 'shoes.html';
-    else if (payload.category === 'Aksesoris') window.location.href = 'accessories.html';
+    if (product.category === 'Pakaian Pria') window.location.href = 'men.html';
+    else if (product.category === 'Pakaian Wanita') window.location.href = 'women.html';
+    else if (product.category === 'Pakaian Anak') window.location.href = 'children.html';
+    else if (product.category === 'Tas') window.location.href = 'bag.html';
+    else if (product.category === 'Sepatu') window.location.href = 'shoes.html';
+    else if (product.category === 'Aksesoris') window.location.href = 'accessories.html';
   } catch (err) {
     alert('Unable to add product: \n\n' + err.message);
   }

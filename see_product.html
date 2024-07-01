@@ -90,59 +90,49 @@
                 
                 <!-- Tabel untuk menampilkan data -->
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Image</th>
-                                <th>Created</th>
-                                <th>Updated</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        // Koneksi ke database
-                        $conn = new mysqli('localhost', 'root', 'syeela12345', 'db_bocawaya4');
-
-                        // Periksa koneksi
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-
-                        // Fetch customer data
-                        $sql = "SELECT * FROM products";
-                        $result = $conn->query($sql);
-
-                        // Check if there are any rows
-                        if ($result->num_rows > 0) {
-                            // Output data of each row
-                            while($row = $result->fetch_assoc()) {
-                                echo "<tr>";
-                                echo "<td>" . $row["id"] . "</td>";
-                                echo "<td>" . $row["name"] . "</td>";
-                                echo "<td>" . $row["description"] . "</td>";
-                                echo "<td>" . $row["category"] . "</td>";
-                                echo "<td>" . $row["price"] . "</td>";
-                                echo "<td>" . $row["image_url"] . "</td>";
-                                echo "<td>" . $row["created_at"] . "</td>";
-                                echo "<td>" . $row["updated_at"] . "</td>";
-                                echo "<td><button class='btn btn-primary btn-sm' onClick='editProduct(" . $row['id'] . ")'><i class='fa fa-edit'></i> Edit</button></td>";
-                                echo "</tr>";
-                            }
-                        } else {
-                            // If no rows found
-                            echo "<tr><td colspan='9'>No product found.</td></tr>";
-                        }
-
-                        $conn->close();
-                        ?>
-                        </tbody>
-                    </table>
+                  <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="product-list-table-body">
+                      <tr>
+                        <td>id</td>
+                        <td>name</td>
+                        <td>description</td>
+                        <td>category</td>
+                        <td>price</td>
+                        <td>image_url</td>
+                        <td>created_at</td>
+                        <td>updated_at</td>
+                        <td>
+                          <button class='btn btn-primary btn-sm'>
+                            <i class='fa fa-edit'></i>
+                            Edit
+                          </button>
+                          <button class='btn btn-primary btn-sm'>
+                            <i class='fa fa-edit'></i>
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr id="product-list-table-foot-loading-info">
+                        <td colspan="9">Sedang memuat ...</td>
+                      </tr>
+                      <tr id="product-list-table-foot-empty-info" style="display: none;">
+                        <td colspan="9">Kosong</td>
+                      </tr>
+                    </tfoot>
+                  </table>
                 </div>
 
               </div>
@@ -216,7 +206,7 @@
   <script src="assets/js/main.js"></script>
 
   <!-- Other JS File -->
-  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/productList.js"></script>
 </body>
 
 </html>

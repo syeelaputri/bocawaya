@@ -14,35 +14,35 @@ authForm.addEventListener('submit', async (e) => {
   const username = form.elements['username'].value;
   const email = form.elements['email'].value;
   const password = form.elements['password'].value;
-  const payload = { username, email, password };
+  const user = { username, email, password };
   
-  const usernameExistence = await getUserUsernameExistence(payload);
+  const usernameExistence = await getUserUsernameExistence(user);
 
   if (!usernameExistence) {
-    createUser(payload);
+    createUser(user);
     form.reset();
     return;
   }
 
-  const user = await getUser(payload);
+  const fetchedUser = await getUser(payload);
 
-  if (!user) {
+  if (!fetchedUser) {
     alert('Unable to sign in: \n\n' + 'Password is incorrect.');
     return;
   }
   
-  signInUser(payload);
+  signInUser(fetchedUser);
   form.reset();
 });
 
 
 
-async function getUserUsernameExistence(payload) {
+async function getUserUsernameExistence(user) {
   try {
     const { data, error } = await supabaseClient
       .from('users')
       .select()
-      .eq('username', payload.username);
+      .eq('username', user.username);
 
     if (error) throw new Error(error.message);
     
@@ -69,21 +69,21 @@ async function getUser(payload) {
   }
 }
 
-async function createUser(payload) {
+async function createUser(user) {
   try {
     const { error } = await supabaseClient
       .from('users')
-      .insert(payload);
+      .insert(user);
     
     if (error) throw new Error(error.message);
 
-    signInUser(payload);
+    signInUser(user);
   } catch (err) {
     alert('Unable to create user: \n\n' + err.message);
   }
 }
 
-function signInUser(payload) {
-  sessionStorage.setItem('signedUser', payload.username);
+function signInUser(user) {
+  sessionStorage.setItem('signedUser', user.username);
   location.reload();
 }
