@@ -6,6 +6,25 @@
 * License: https://bootstrapmade.com/license/
 */
 
+const supabaseUrl = 'https://sklxkvtiftfffbjigxry.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNrbHhrdnRpZnRmZmZiamlneHJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk4NDU3NzQsImV4cCI6MjAzNTQyMTc3NH0.nGYlkG16Qi_wh5wTmsbAKvIhwGr4ozqaxImrGkTD7Fs';
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+// <---------- AUTH
+const signedUser = sessionStorage.getItem('signedUser');
+const authButtons = document.querySelectorAll('.btn-getstarted');
+
+if (signedUser) authButtons.forEach(authButton => authButton.textContent = 'Keluar');
+else authButtons.forEach(authButton => authButton.textContent = 'Masuk/Daftar');
+
+authButtons.forEach(authButton => authButton.addEventListener('click', () => {
+  if (authButton.textContent === 'Keluar') {
+    sessionStorage.removeItem('signedUser');
+    location.reload();
+  }
+}));
+// AUTH ---------->
+
 (function() {
   "use strict";
 
