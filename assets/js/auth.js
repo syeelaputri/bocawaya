@@ -5,7 +5,10 @@ const authForm = document.getElementById('auth-form');
 authForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  if (signedUser) return;
+  if (signedUser) {
+    alert('You\'re already signed in!');
+    return;
+  }
 
   const form = e.target;
   const username = form.elements['username'].value;
