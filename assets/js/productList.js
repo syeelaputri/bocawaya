@@ -2,6 +2,9 @@ const productListTableBody = document.getElementById('product-list-table-body');
 const productListTableFootLoadingInfo = document.getElementById('product-list-table-foot-loading-info');
 const productListTableFootEmptyInfo = document.getElementById('product-list-table-foot-empty-info');
 
+const editProductModal = document.getElementById('edit-product-modal');
+const editProductModalForm = document.getElementById('edit-product-modal-form');
+
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -76,7 +79,26 @@ async function getProductList() {
 }
 
 async function editProduct(product) {
-  console.log('editProduct', product);
+  editProductModal.style.display = 'block';
+  editProductModal.classList.remove('fade');
+
+  const idInput = editProductModalForm.elements['id'];
+  idInput.value = product.id;
+
+  const nameInput = editProductModalForm.elements['name'];
+  nameInput.value = product.name;
+
+  const descriptionInput = editProductModalForm.elements['description'];
+  descriptionInput.value = product.description;
+
+  const categorySelect = editProductModalForm.elements['category'];
+  categorySelect.value = product.category;
+
+  const priceInput = editProductModalForm.elements['price'];
+  priceInput.value = product.price;
+
+  const imageUrlInput = editProductModalForm.elements['image_url'];
+  imageUrlInput.value = product.image_url;
 }
 
 async function deleteProduct(product) {

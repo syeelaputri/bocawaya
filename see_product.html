@@ -113,11 +113,11 @@
                         <td>created_at</td>
                         <td>updated_at</td>
                         <td>
-                          <button class='btn btn-primary btn-sm'>
+                          <button type="button" class='btn btn-primary btn-sm'>
                             <i class='fa fa-edit'></i>
                             Edit
                           </button>
-                          <button class='btn btn-primary btn-sm'>
+                          <button type="button" class='btn btn-primary btn-sm'>
                             <i class='fa fa-edit'></i>
                             Delete
                           </button>
@@ -146,6 +146,56 @@
     </section><!-- /Get A Quote Section -->
 
   </main>
+
+  <!-- Modal untuk mengedit data produk -->
+  <!-- <div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true"> -->
+  <div id="edit-product-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Produk</h5>
+          <button id="edit-product-modal-close-button" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-product-modal-form">
+            <div class="mb-3">
+              <label for="id" class="form-label">ID</label>
+              <input name="id" type="text" class="form-control" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input name="name" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input name="description" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <select name="category" class="form-control" required>
+                <option value="">Select Category</option>
+                <option value="Pakaian Pria">Pakaian Pria</option>
+                <option value="Pakaian Wanita">Pakaian Wanita</option>
+                <option value="Pakaian Anak">Pakaian Anak</option>
+                <option value="Tas">Tas</option>
+                <option value="Sepatu">Sepatu</option>
+                <option value="Aksesoris">Aksesoris</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input name="price" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="image_url" class="form-label">Image</label>
+              <input name="image_url" type="text" class="form-control" required>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer id="footer" class="footer">
 
@@ -207,6 +257,7 @@
 
   <!-- Other JS File -->
   <script src="assets/js/productList.js"></script>
+  <script src="assets/js/editProduct.js"></script>
 </body>
 
 </html>
