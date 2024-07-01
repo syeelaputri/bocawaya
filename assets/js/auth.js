@@ -24,7 +24,7 @@ authForm.addEventListener('submit', async (e) => {
     return;
   }
 
-  const fetchedUser = await getUser(payload);
+  const fetchedUser = await getUser(user);
 
   if (!fetchedUser) {
     alert('Unable to sign in: \n\n' + 'Password is incorrect.');
@@ -53,13 +53,13 @@ async function getUserUsernameExistence(user) {
   }
 }
 
-async function getUser(payload) {
+async function getUser(user) {
   try {
     const { data, error } = await supabaseClient
       .from('users')
       .select()
-      .eq('username', payload.username)
-      .eq('password', payload.password);
+      .eq('username', user.username)
+      .eq('password', user.password);
 
     if (error) throw new Error(error.message);
     
