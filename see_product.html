@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Profil - Boca Waya</title>
+  <title>Lihat Produk - Boca Waya</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="contact-page">
+<body class="get-a-quote-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
@@ -46,7 +46,7 @@
           <li><a href="about.html">Tentang Kami</a></li>
           <li><a href="services.html">Kategori</a></li>
           <li><a href="pricing.html">Keranjang</a></li>
-          <li><a href="contact.html" class="active">Profil</a></li>
+          <li><a href="contact.html">Profil</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -59,81 +59,46 @@
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
+    <div class="page-title position-relative" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
       <div class="container position-relative">
-        <h1>Profil</h1>
-        <p>Data dan infomasi dari akun Anda.</p>
+        <h1>Lihat Produk</h1>
+        <p>Hm, apa saja produk yang dijual?</p>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Beranda</a></li>
-            <li class="current">Profil</li>
+            <li class="current">Lihat Produk</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <!-- Get A Quote Section -->
+    <section id="get-a-quote" class="get-a-quote section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container">
 
-        <div class="row gy-4">
-          <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Username</h3>
-                <p>(username)</p>
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+            <form id="auth-form" class="php-email-form">
+
+              <div class="row gy-4">
+
+                <div class="col-lg-12">
+                  <h4>Lihat Produk</h4>
+                </div>
+                
+                <!-- tampilkan tabel dari produk yang dijual -->
+
               </div>
-            </div><!-- End Info Item -->
+            </form>
+          </div><!-- End Quote Form -->
 
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email</h3>
-                <p>(email)</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3><a href="add_product.html">Jual Produk</a></h3>
-                <p>Yuk, mulai berjualan!</p>
-              </div>
-            </div><!-- End Info Item -->
-  
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3><a href="see_product.html">Lihat Produk</a></h3>
-                <p>Hm, apa saja produk yang dijual?</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3><a href="upd_product.html">Perbarui Produk</a></h3>
-                <p>Apakah ada informasi yang ingin diubah?</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3><a href="del_product.html">Hapus Produk</a></h3>
-                <p>Produk tidak jadi dijual?</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-          </div><!-- End Contact Form -->
         </div>
 
       </div>
 
-    </section><!-- /Contact Section -->
+    </section><!-- /Get A Quote Section -->
 
   </main>
 
@@ -195,6 +160,8 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Other JS File -->
+  <script src="assets/js/auth.js"></script>
 </body>
 
 </html>
