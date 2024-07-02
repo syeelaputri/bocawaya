@@ -77,7 +77,8 @@ async function createUser(user) {
     
     if (error) throw new Error(error.message);
 
-    signInUser(user);
+    const fetchedUser = await getUser(user);
+    signInUser(fetchedUser);
   } catch (err) {
     alert('Unable to create user: \n\n' + err.message);
   }
