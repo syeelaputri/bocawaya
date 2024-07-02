@@ -20,6 +20,7 @@ else authButtons.forEach(authButton => authButton.textContent = 'Masuk/Daftar');
 authButtons.forEach(authButton => authButton.addEventListener('click', () => {
   if (authButton.textContent === 'Keluar') {
     sessionStorage.removeItem('signedUser');
+    sessionStorage.removeItem('cartList');
     location.reload();
   }
 }));

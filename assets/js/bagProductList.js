@@ -63,10 +63,23 @@ function createCardItem(product, delay) {
   const pPrice = document.createElement('p');
   pPrice.textContent = product.price;
 
+  const existingCartList = sessionStorage.getItem('cartList');
+  const cartList = existingCartList ? [...JSON.parse(existingCartList)] : [];
+  const isProductAlreadyInCart = cartList.some(cart => cart.id === product.id);
   const buttonElement = document.createElement('button');
-  buttonElement.textContent = 'Tambahkan ke keranjang!';
+  buttonElement.textContent = isProductAlreadyInCart ? 'Produk sudah ditambahkan di keranjang' : 'Tambahkan ke keranjang!';
+  buttonElement.disabled = isProductAlreadyInCart ? true : false;
   buttonElement.addEventListener('click', () => {
-    console.log(product);
+    if (!signedUser) {
+      alert('You must be signed in first!');
+      return;
+    }
+
+    cartList.push(product);
+    sessionStorage.removeItem('cartList');
+    sessionStorage.setItem('cartList', JSON.stringify(cartList));
+
+    location.reload();
   });
 
   cardImgDiv.appendChild(imgElement);
