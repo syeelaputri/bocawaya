@@ -84,6 +84,6 @@ async function createUser(user) {
 }
 
 function signInUser(user) {
-  sessionStorage.setItem('signedUser', user.username);
+  sessionStorage.setItem('signedUser', JSON.stringify(user));
   location.reload();
 }

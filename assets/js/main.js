@@ -11,7 +11,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 // <---------- AUTH
-const signedUser = sessionStorage.getItem('signedUser');
+const signedUser = JSON.parse(sessionStorage.getItem('signedUser'));
 const authButtons = document.querySelectorAll('.btn-getstarted');
 
 if (signedUser) authButtons.forEach(authButton => authButton.textContent = 'Keluar');
