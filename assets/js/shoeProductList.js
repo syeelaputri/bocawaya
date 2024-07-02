@@ -39,7 +39,8 @@ function createCardItem(product, delay) {
   colDiv.setAttribute('data-aos-delay', delay);
 
   const cardDiv = document.createElement('div');
-  cardDiv.className = 'card';
+  // cardDiv.className = 'card';
+  cardDiv.style = 'border: 1px solid grey; padding: 4px; border-radius: 4px;'
 
   const cardImgDiv = document.createElement('div');
   cardImgDiv.className = 'card-img';
@@ -56,13 +57,24 @@ function createCardItem(product, delay) {
   aElement.textContent = product.name;
   h3Element.appendChild(aElement);
 
-  const pElement = document.createElement('p');
-  pElement.textContent = product.description;
+  const pDescription = document.createElement('p');
+  pDescription.textContent = product.description;
+
+  const pPrice = document.createElement('p');
+  pPrice.textContent = product.price;
+
+  const buttonElement = document.createElement('button');
+  buttonElement.textContent = 'Tambahkan ke keranjang!';
+  buttonElement.addEventListener('click', () => {
+    console.log(product);
+  });
 
   cardImgDiv.appendChild(imgElement);
   cardDiv.appendChild(cardImgDiv);
   cardDiv.appendChild(h3Element);
-  cardDiv.appendChild(pElement);
+  cardDiv.appendChild(pDescription);
+  cardDiv.appendChild(pPrice);
+  cardDiv.appendChild(buttonElement);
   colDiv.appendChild(cardDiv);
 
   return colDiv;
